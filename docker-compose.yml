@@ -6,7 +6,7 @@ services:
     # image: ${DOCKERHUB_USERNAME:-your-username}/dock-dploy:latest
     # Alternative: Use image from GitHub Container Registry
     # image: ghcr.io/${GITHUB_REPOSITORY:-your-username/dock-dploy}:latest
-  image: hhftechnology/dock-dploy:sha-8c08771
+  image: vlaw-hou/dock-dploy:sha-8c08771
   container_name: dock-dploy
   restart: unless-stopped
   ports:
