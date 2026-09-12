@@ -1,20 +1,23 @@
 services:
-  networks: 
-    - caddynet
+
+  # 'Dock-dploy' container
   dock-dploy:
-    # Use the image from Docker Hub (replace YOUR_USERNAME with your Docker Hub username)
-    # image: ${DOCKERHUB_USERNAME:-your-username}/dock-dploy:latest
-    # Alternative: Use image from GitHub Container Registry
-    # image: ghcr.io/${GITHUB_REPOSITORY:-your-username/dock-dploy}:latest
-  image: vlaw-hou/dock-dploy:latest
-  container_name: dock-dploy
-  restart: unless-stopped
-  ports:
+  
+    container_name: dock-dploy
+    
+    image: hhftechnology/dock-dploy:latest    
+    
+    environment:
+      - NODE_ENV=production
+      
+    ports:
       - "127.0.0.1:3099:3000"
-  environment:
-    - NODE_ENV=production
-  # Optional: Add healthcheck
-  # Optional: Resource limits
+      
+    networks:
+      - caddynet
+    
+    restart: unless-stopped
+
 
 networks:
   caddynet:
